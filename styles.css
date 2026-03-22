@@ -1,0 +1,255 @@
+/* Minimal, typography-forward portfolio */
+:root {
+  --bg: #f2eee8;
+  --paper: #faf8f4;
+  --ink: #141414;
+  --muted: #66615b;
+  --line: #dbd5cd;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Space Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+.page {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 44px 24px 64px;
+  display: grid;
+  gap: 26px;
+}
+
+.hero {
+  display: grid;
+  gap: 8px;
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+h1 {
+  margin: 0;
+  font-family: "Bebas Neue", Impact, sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  font-size: clamp(56px, 14vw, 150px);
+  line-height: 0.9;
+}
+
+.lede {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.hero-links {
+  display: flex;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.hero-links .ghost {
+  color: var(--ink);
+  text-decoration: none;
+  border: 1px solid var(--line);
+  padding: 7px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+}
+
+.hero-links .ghost:hover {
+  background: #ece8e2;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.section-header h2 {
+  margin: 0;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.section-header .hint {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.project-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.project-card {
+  border: 1px solid var(--line);
+  background: var(--paper);
+}
+
+.project-preview {
+  width: 100%;
+  position: relative;
+  display: block;
+  cursor: pointer;
+}
+
+.project-cover {
+  display: block;
+  width: 100%;
+  aspect-ratio: 5 / 4;
+  object-fit: cover;
+  filter: saturate(1.05) contrast(1.02);
+  background: #0f0f0f;
+}
+
+.project-cover-placeholder {
+  display: grid;
+  place-items: center;
+  background: #1f1f1f;
+  color: #f3efe9;
+  font-family: "Bebas Neue", Impact, sans-serif;
+  letter-spacing: 0.1em;
+  font-size: 32px;
+}
+
+.title-overlay {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 14px 16px;
+  background: linear-gradient(to top, rgba(15, 15, 15, 0.68), rgba(15, 15, 15, 0));
+  pointer-events: none;
+}
+
+.project-title {
+  margin: 0;
+  color: #fff;
+  font-family: "Bebas Neue", Impact, sans-serif;
+  letter-spacing: 0.04em;
+  font-size: clamp(26px, 3vw, 34px);
+  line-height: 0.95;
+}
+
+.project-details {
+  padding: 14px 14px 16px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tags span {
+  border: 1px solid var(--line);
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 999px;
+}
+
+.source-button {
+  text-decoration: none;
+  color: var(--ink);
+  border: 1px solid var(--ink);
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.source-button:hover {
+  background: #e7e2db;
+}
+
+.empty-state {
+  padding: 20px;
+  font-size: 14px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.footer {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.video-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.78);
+  padding: 20px;
+}
+
+.video-modal[hidden] {
+  display: none;
+}
+
+.video-modal-dialog {
+  width: min(100%, 1000px);
+  position: relative;
+}
+
+.video-modal-player {
+  width: 100%;
+  max-height: 86vh;
+  border: 1px solid #2d2d2d;
+  background: #000;
+}
+
+.video-modal-close {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  border: 1px solid #fff;
+  background: #101010;
+  color: #fff;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .project-list { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  .page { padding: 30px 14px 46px; }
+}
